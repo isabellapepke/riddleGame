@@ -28,13 +28,13 @@ bonus_riddles = [b1,b2]
 answers = [a1,a2,a3,a4] #is an array of arrays
 correct_riddles = [0,0,0,0]
 
-"""
+#prints the text letter by letter slowly
 def print_slowly(text):
     for c in text:
-        print c, end='',
+        print (c, end='')
         sys.stdout.flush()
-        sleep(0.2)
-"""
+        sleep(0.3)
+
 #a function that prints the riddle based on an integer, returns nothing
 def printRiddle(num):
     #double check for duplicates
@@ -186,9 +186,4 @@ printBonusRiddle(6)
 input("I will not take your answer but you can press enter to see the answer")
 print("Answer: Mount Everest was still the tallest mountain even though we didn't discover it yet")
 
-
-
-
-"""a, b = 1, 2
-print("a={0}, b={1}".format(a, b))
-"""
+print_slowly("BYE!")
