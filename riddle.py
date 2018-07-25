@@ -23,8 +23,13 @@ r4 = "Only two back bones and thousands of ribs. What am I?"
 a4 = ["railroad track","railroad tracks","train tracks", "train track", "railroad","DNA"]
 b1 = "In the backyard there is a hollow stump that contains 6 ears of corn. If a healthy squirrel leaves with 3 ears each day, why does it take 6 days to clear out the corn? "
 b2 = "Before Mount Everest was discovered, what was the highest mountain on Earth?"
+h1 = "It is used to change the color of something"
+h2 = "It is usually attached to a string that a human holds"
+h3 = "If you are doing complicated math you're thinking too hard"
+h4 = "It is not a living thing"
 riddles = [r1,r2,r3,r4]
 bonus_riddles = [b1,b2]
+riddle_hints = [h1,h2,h3,h4]
 answers = [a1,a2,a3,a4] #is an array of arrays
 correct_riddles = [0,0,0,0]
 
@@ -35,15 +40,23 @@ def print_slowly(text):
         sys.stdout.flush()
         sleep(0.3)
 
+#prints hint for said riddle
+def printHint():
+    print("\nYou will now receive a hint")
+    print_slowly("...")
+    print(riddle_hints[currentRiddle])
+
+
 #a function that prints the riddle based on an integer, returns nothing
 def printRiddle(num):
     #double check for duplicates
     index = num -1
     print("\nYou will now receive riddle #{0}".format(num))
     if num!= len(riddles)+1 and num!=0:
-        print(riddles[index])
+        print("\n\n\t",riddles[index],"\n")
     return index
 
+#prints the bonus riddles
 def printBonusRiddle(num):
     print("\nYou will now receive riddle #{0}".format(num))
     if num==5:
@@ -72,6 +85,7 @@ def checkAnswers(guess):
         print("that is...\n\tINCORRECT\nTry again.\n\n")
     return output
 
+#displays the riddle score for user to see
 def displayRiddleScore():
     print()
     for a in range(len(correct_riddles)):
@@ -130,6 +144,9 @@ while playing ==True:
                 tries = 3
                 readyForRiddle = True
                 readyToGuess = True
+    hintInput = input("\nWould you like a hint? enter y for hint, or n for no hint ")
+    if hintInput.lower() == "y":
+        printHint()
 
     #easy version--asks for guesses until they guess correctly
     if mode == "easy":
