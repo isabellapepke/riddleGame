@@ -38,7 +38,7 @@ def print_slowly(text):
     for c in text:
         print (c, end='')
         sys.stdout.flush()
-        sleep(0.3)
+        sleep(0.4)
 
 #prints hint for said riddle
 def printHint():
@@ -119,12 +119,14 @@ user_input = input("\n\nWould you like to play the easy or hard version? \
 if user_input.lower() == "hard":
     mode = "hard"
 print("\nYou chose: ",mode," mode")
+sleep(0.5)
 
 while playing ==True:
     while readyForRiddle ==False:
         #user_input =input("Which riddle would you like to start with? There are {0} riddles. Type a number 1 throught {0} then press enter".format(len[riddle]))
         try:
             displayRiddleScore()
+            sleep(0.5)
             user_input =int(input("\nWhich riddle would you like to start with? There are 4 riddles. Type a number 1 through 4 then press enter: "))
         except ValueError:
             print('\nYou did not enter a correct number. Try again.')
@@ -180,6 +182,7 @@ while playing ==True:
                 if finished ==True:
                     playing = False
                     print("\n\n-----BONUS RIDDLE-----")
+                    sleep(0.3)
                     printBonusRiddle(5)
                     input("I will not take your answer but you can press enter to see the answer")
                     print("Answer: The squirrel has 2 ears and takes back only 1 ear of corn")
@@ -201,6 +204,7 @@ print("THANKS FOR PLAYING")
 input("\n\nSTILL WANT MORE RIDDLES????")
 printBonusRiddle(6)
 input("I will not take your answer but you can press enter to see the answer")
+sleep(0.3)
 print("Answer: Mount Everest was still the tallest mountain even though we didn't discover it yet")
 
 print_slowly("BYE!")
