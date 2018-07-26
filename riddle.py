@@ -14,11 +14,11 @@ tries = 3
 
 ###riddles in strings, answers in arrays, riddle is an array that contains all of the riddles, Correct riddles keeps track of whether they are guessed or not
 r1 = "What kind of coat can be put on only when wet?"
-a1 = ["coat of paint","paint","paint coat","nail polish","coat of nail polish"]
-r2 = "I love to dance and twist and prance, I shake my tail, as away I sail, wingless I fly into the sky. What am I?"
+a1 = ["coat of paint","paint","paint coat","nail polish","coat of nail polish","a coat of paint"]
+r2 = "I love to dance and twist and prance. I shake my tail, as away I sail, wingless I fly into the sky. What am I?"
 a2 = ["a kite","kite","kites"]
 r3 = "While on my way to St. Ives, I saw a man with 7 wives. Each wife had 7 sacks. Each sack had 7 cats. Each cat had 7 kittens. Kitten, cats, sacks, wives, how many were going to St. Ives?"
-a3 = ["one","just one, me","you","1"]
+a3 = ["one","just one, me","you","1","just one","just me"]
 r4 = "Only two back bones and thousands of ribs. What am I?"
 a4 = ["railroad track","railroad tracks","train tracks", "train track", "railroad","DNA"]
 b1 = "In the backyard there is a hollow stump that contains 6 ears of corn. If a healthy squirrel leaves with 3 ears each day, why does it take 6 days to clear out the corn? "
@@ -26,7 +26,7 @@ b2 = "Before Mount Everest was discovered, what was the highest mountain on Eart
 h1 = "It is used to change the color of something"
 h2 = "It is usually attached to a string that a human holds"
 h3 = "If you are doing complicated math you're thinking too hard"
-h4 = "It is not a living thing"
+h4 = "It was/is not a living thing"
 riddles = [r1,r2,r3,r4]
 bonus_riddles = [b1,b2]
 riddle_hints = [h1,h2,h3,h4]
@@ -146,13 +146,14 @@ while playing ==True:
                 tries = 3
                 readyForRiddle = True
                 readyToGuess = True
-    hintInput = input("\nWould you like a hint? enter y for hint, or n for no hint ")
-    if hintInput.lower() == "y":
-        printHint()
+
 
     #easy version--asks for guesses until they guess correctly
     if mode == "easy":
         while readyToGuess == True:
+            hintInput = input("\nWould you like a hint? enter y for hint, or n for no hint ")
+            if hintInput.lower() == "y":
+                printHint()
             user_input = input("\nAnd your guess is ")
             if checkAnswers(user_input.lower()) == True:
                 readyToGuess = False
@@ -172,6 +173,9 @@ while playing ==True:
     #hard mode has to check for tries
     elif mode =="hard":
         while readyToGuess == True and tries >0:
+            hintInput = input("\nWould you like a hint? enter y for hint, or n for no hint ")
+            if hintInput.lower() == "y":
+                printHint()
             print("You have {0} tries/try left".format(tries))
             user_input = input("\nAnd your guess is ")
             if checkAnswers(user_input.lower()) == True:
