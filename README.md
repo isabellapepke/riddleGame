@@ -6,4 +6,4 @@ Run the code in either IDLE or terminal/command prompt.
 
         python riddleGame.py
         
-Follow the instruction from the program and enjoy.
+Follow the instructions from the program and enjoy!
